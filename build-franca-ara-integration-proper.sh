@@ -19,5 +19,19 @@ export PREFIX=$sysroot/usr
 $qmake franca_ara.pro
 make -j4
 
-sudo cp franca-ara $sysroot/usr/bin/franca-ara
+sudo cp franca-ara $sysroot/usr/bin/
 
+# Build test server for dev support
+CXX=$GCC_ARCH-g++
+
+cd tests/testprograms/capi_server
+$CXX -o capi_server -std=c++14 -I src-gen -I/usr/local/include/CommonAPI-3.1 \
+  main.cpp \
+    src-gen/v1/genivi/aasr/showcase/*.cpp \
+    -L$sysroot/usr/lib \
+    -lCommonAPI-SomeIP  \
+    -lCommonAPI \
+    -lpthread \
+    -lvsomeip
+
+sudo cp capi_server $sysroot/usr/bin/
