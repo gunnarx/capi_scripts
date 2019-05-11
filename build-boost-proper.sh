@@ -9,8 +9,6 @@ b=./boost_1_67_0
 sysroot="$SYSROOT"
 [ -z "$SYSROOT" ] && sysroot=/home/user/sysroot_x86_64
 
-GCC_ARCH=x86_64-linux-gnu
-
 cd "$b"
 ./bootstrap.sh
 
