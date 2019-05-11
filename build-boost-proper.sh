@@ -10,7 +10,10 @@ sysroot="$SYSROOT"
 [ -z "$SYSROOT" ] && sysroot=/home/user/sysroot_x86_64
 
 cd "$b"
+unset CC # Avoid SDK settings - build bootstrap with host compiler
 ./bootstrap.sh
+
+. /xdt/sdk/environment-setup-corei7-64-agl-linux # Restore SDK env
 
 sed -i "s/using gcc/using gcc : arm : $GCC_ARCH-g++/" project-config.jam
 

@@ -1,5 +1,6 @@
 #!/bin/sh -xe
 
+echo "NOTE: Assuming SDK & sysroot is already set up..."
 cd "$(dirname "$0")"
 WORKDIR=$PWD
 
@@ -12,7 +13,6 @@ clone() {
   fi
 }
 
-wget -c https://images.apertis.org/release/$APERTIS_RELEASE/$ARCH/sysroot/$SYSROOT_PKG
 wget -c https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2
 clone https://github.com/GENIVI/capicxx-core-runtime
 clone https://github.com/GENIVI/capicxx-someip-runtime
@@ -21,7 +21,7 @@ clone https://github.com/GENIVI/franca_ara_integration
 
 mkdir -p $SYSROOT
 echo "NOTE: Expecting that sysroot ($SYSROOT) was already populated"
-if [ ! -d boost_1_67_0 ] ; then tar xf boost_1_67_0.tar.bz2 ; fi
+if [ ! - d boost_1_67_0 ] ; then tar xf boost_1_67_0.tar.bz2 ; fi
 
 # Set up SDK
 . /xdt/sdk/environment-setup-corei7-64-agl-linux
