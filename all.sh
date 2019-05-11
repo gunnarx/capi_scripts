@@ -7,7 +7,9 @@ WORKDIR=$PWD
 
 clone() {
   d="$(basename "$1")"
-  [ ! -d $d ] && git clone $1
+  if [ ! -d $d ] ; then
+    git clone $1
+  fi
 }
 
 wget -c https://images.apertis.org/release/$APERTIS_RELEASE/$ARCH/sysroot/$SYSROOT_PKG
