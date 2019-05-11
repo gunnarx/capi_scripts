@@ -13,6 +13,7 @@ sysroot="$SYSROOT"
 qmake=/usr/lib/$GCC_ARCH/qt5/bin/qmake
 
 cd "$d"
+git checkout no_dlt
 fgrep -q $sysroot src/src.pro || echo "LIBS += -L\"$sysroot/usr/lib\"" >> src/src.pro
 export PREFIX=$sysroot/usr
 $qmake franca_ara.pro
