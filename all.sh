@@ -20,8 +20,11 @@ clone https://github.com/GENIVI/vsomeip
 clone https://github.com/GENIVI/franca_ara_integration
 
 mkdir -p $SYSROOT
-sudo tar -xf $SYSROOT_PKG -C $SYSROOT
+echo "NOTE: Expecting that sysroot ($SYSROOT) was already populated"
 if [ ! -d boost_1_67_0 ] ; then tar xf boost_1_67_0.tar.bz2 ; fi
+
+# Set up SDK
+. /xdt/sdk/environment-setup-corei7-64-agl-linux
 
 ./build-boost-proper.sh
 ./build-capicxx-core-runtime-proper.sh
