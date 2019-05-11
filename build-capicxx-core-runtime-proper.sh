@@ -7,7 +7,7 @@ WORKDIR=$PWD
 d=./capicxx-core-runtime
 GCC_ARCH=x86_64-linux-gnu
 sysroot="$SYSROOT"
-[ -z "$SYSROOT" ] && sysroot=/home/user/sysroot_x86-64
+[ -z "$SYSROOT" ] && sysroot=/home/user/sysroot_x86_64
 
 cd "$d"
 rm -rf build

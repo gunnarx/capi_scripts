@@ -7,7 +7,7 @@ WORKDIR=$PWD
 d=./franca_ara_integration
 GCC_ARCH=x86_64-linux-gnu
 sysroot="$SYSROOT"
-[ -z "$SYSROOT" ] && sysroot=/home/user/sysroot_x86-64
+[ -z "$SYSROOT" ] && sysroot=/home/user/sysroot_x86_64
 
 # Note qmake from host root
 qmake=/usr/lib/$GCC_ARCH/qt5/bin/qmake
