@@ -21,7 +21,7 @@ clone https://github.com/GENIVI/franca_ara_integration
 
 mkdir -p $SYSROOT
 echo "NOTE: Expecting that sysroot ($SYSROOT) was already populated"
-if [ ! - d boost_1_67_0 ] ; then tar xf boost_1_67_0.tar.bz2 ; fi
+if [ ! -d boost_1_67_0 ] ; then tar xf boost_1_67_0.tar.bz2 ; fi
 
 # Set up SDK
 . /xdt/sdk/environment-setup-corei7-64-agl-linux
