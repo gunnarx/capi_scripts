@@ -16,6 +16,7 @@ cd "$sysroot"
 pwd
 tar --ignore-failed-read -cvzf $D/package.tar.gz \
     ./usr/lib/{libboost*,libCommonAPI*,libvsomeip*} \
+    ./usr/bin/franca-ara \
     ./usr/bin/vsomeipd \
     ./usr/bin/capi_server
 
