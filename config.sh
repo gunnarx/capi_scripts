@@ -9,7 +9,7 @@ APERTIS_RELEASE=v2019dev0/v2019dev0.0
 #GCC_ARCH=aarch64-linux-gnu
 
 ## MINNOWBOARD / X86
-SYSROOT=/xdt/sdk/sysroots/corei7-64-agl-linux/
+SYSROOT=/xdt/sdk/sysroots/corei7-64-agl-linux
 SYSROOT_PKG=
 ARCH=amd64
 GCC_ARCH=x86_64-linux-gnu
