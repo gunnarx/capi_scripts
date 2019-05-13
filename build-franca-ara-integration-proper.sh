@@ -13,7 +13,9 @@ qmake=/usr/lib/$GCC_ARCH/qt5/bin/qmake
 
 cd "$d"
 git checkout no_dlt
-fgrep -q $sysroot src/src.pro || echo "LIBS += -L\"$sysroot/usr/lib\"" >> src/src.pro
+fgrep -q $sysroot src/src.pro || echo "LIBS += -L$sysroot/usr/lib" >> src/src.pro
+fgrep -q $sysroot/usr/include src/src.pro || echo "INCLUDEPATH += $sysroot/usr/include/CommonAPI-3.1/" >>src/src.pro
+
 export PREFIX=$sysroot/usr
 $qmake franca_ara.pro
 make -j4
@@ -24,7 +26,9 @@ sudo cp franca-ara $sysroot/usr/bin/
 CXX=$GCC_ARCH-g++
 
 cd tests/testprograms/capi_server
-$CXX -o capi_server -std=c++14 -I src-gen -I/usr/local/include/CommonAPI-3.1 \
+$CXX -o capi_server -std=c++14 -I src-gen \
+	-I$sysroot/usr/include \
+	-I$sysroot/usr/include/CommonAPI-3.1 \
   main.cpp \
     src-gen/v1/genivi/aasr/showcase/*.cpp \
     -L$sysroot/usr/lib \
